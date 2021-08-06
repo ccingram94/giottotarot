@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box'
 import { useState } from 'react'
 
 const useStyles = makeStyles({
-  root: {
+  basic: {
     padding: '20px',
     margin: '10px',
     backgroundColor: 'black',
@@ -29,7 +29,12 @@ export default function Home() {
     const [question, setQuestion] = useState(""); 
     const classes = useStyles();
 
+    const handleClick = () =>{
+      console.log("you clicked the button");
+    }
+
     const handleSubmit = (e) => {
+      alert('An event was submitted: ' + this.state.value)
       e.preventDefault();
     }
 
@@ -51,7 +56,7 @@ export default function Home() {
           <TextField className={styles.input} value={question} onChange={(e) => setQuestion(e.target.value)}/>
           <br />
           <Box className={classes.flexdisplay}>
-            <Button className={classes.root}>reveal my fate</Button>
+            <Button onClick={handleClick} className={classes.basic}>reveal my fate</Button>
           </Box>
         </form>
       </main>

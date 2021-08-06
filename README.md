@@ -4,4 +4,6 @@ This is a refactoring of an old tarot web app (jQuery and PHP ... it was 2015) w
 
 ⭐️ Prisma ORM (used with Postgres)
 
+🌙 Next-Auth authentication 
+
 ✌️ Material UI and Framer Motion
