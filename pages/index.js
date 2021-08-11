@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
+import router from 'next/router'
 import styles from '../styles/Home.module.css'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import { useState } from 'react'
+import { signIn, signOut, useSession } from 'next-auth/client'
 
 const useStyles = makeStyles({
   basic: {
@@ -20,22 +23,20 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  button: {
-
-  }
+  textfield: {
+    width: '50vw',
+  },
 })
 export default function Home() {
 
-    const [question, setQuestion] = useState(""); 
+    const [ question, setQuestion ] = useState('');
+    const [ session, loading ] = useSession();
     const classes = useStyles();
 
-    const handleClick = () =>{
-      console.log("you clicked the button");
-    }
 
     const handleSubmit = (e) => {
-      alert('An event was submitted: ' + this.state.value)
       e.preventDefault();
+      router.push('/reading');
     }
 
   return (
@@ -53,10 +54,16 @@ export default function Home() {
         </h1>
         <form onSubmit={handleSubmit} className={classes.flexdisplay}>
           <h2>enter your question below: </h2>
-          <TextField className={styles.input} value={question} onChange={(e) => setQuestion(e.target.value)}/>
-          <br />
+          <TextField className={classes.textfield} value={question} onChange={(e) => setQuestion(e.target.value)}></TextField>
           <Box className={classes.flexdisplay}>
-            <Button onClick={handleClick} className={classes.basic}>reveal my fate</Button>
+            <Link href="/reading">
+              <Button className={classes.basic}>reveal my fate</Button>
+            </Link>
+            <div className={styles.buttonbar}>
+              {!session && <Button onClick={() => signIn()}>Sign In</Button>}
+              {session && <Button onClick={() => signOut()}>Sign Out</Button>}
+              {session && <Link href="/profile"><Button>My Profile</Button></Link>}
+            </div>
           </Box>
         </form>
       </main>

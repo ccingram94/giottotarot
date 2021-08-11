@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Reading.module.css'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import { useState } from 'react'
+import background from '../public/back.jpg'
+import { motion, AnimatePresence } from 'framer-motion'
+import {cards} from '../cards.js'
 
 const useStyles = makeStyles({
   root: {
@@ -24,15 +27,24 @@ const useStyles = makeStyles({
 
   }
 })
-export default function Home() {
 
-    const [question, setQuestion] = useState(""); 
-    const classes = useStyles();
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log(e);
-    }
+function pickCard(max) {
+  return Math.floor(Math.random() * max);
+}
+
+const card1 = pickCard(21);
+const card2 = pickCard(21);
+const card3 = pickCard(21);
+
+
+export default function Reading() {
+
+  const [visibility, setVisibility] = useState(false);
+  const [ flipped1, flipCard ] = useState(false);
+  const [ flipped2, flipCard2 ] = useState(false);
+  const [ flipped3, flipCard3 ] = useState(false);
+  const classes = useStyles();
 
   return (
     <div className={styles.container}>
@@ -44,17 +56,54 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Giotto Tarot
-        </h1>
-        <form onSubmit={handleSubmit} className={classes.flexdisplay}>
-          <h2>enter your question below: </h2>
-          <TextField className={styles.input} value={question} onChange={(e) => setQuestion(e.target.value)}/>
-          <br />
-          <Box className={classes.flexdisplay}>
-            <Button className={classes.root}>reveal my fate</Button>
-          </Box>
-        </form>
+        {!visibility &&  <h2> Click the deck to deal your cards: </h2>}
+        {visibility &&  <div className={classes.flexdisplay}><Button className={classes.basic}>Save This Reading</Button></div>}
+        <div className={styles.row} layout>
+          <div className={styles.deck}>
+            <Image src={background} className={styles.deck} onClick={() => setVisibility(!visibility)}></Image>
+          </div>
+          <motion.div className={styles.modal}>
+            <AnimatePresence>
+              {visibility && (
+                <motion.div className={styles.row}
+                  initial={{ opacity: 0, scale: 0.75 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}>
+                    <div className={styles.card}>
+                      <h2> Past </h2>
+                      {!flipped1 && <Image src={background} onClick={ () => flipCard(!flipped1)}></Image>}
+                      {!flipped1 && <p>Click to reveal your card.</p>}
+                      {flipped1 && <motion.div>
+                        <Image className={styles.card} src={'/../public/' + card1 + '.jpg' } height="400" width="300"></Image>
+                        <h2>{ cards[card1].title }</h2>
+                        <p>{ cards[card1].description }</p>
+                        </motion.div>}
+                    </div>
+                    <div className={styles.card}>
+                      <h2> Present </h2>
+                      {!flipped2 && <Image src={background} onClick={ () => flipCard2(!flipped2)}></Image>}
+                      {!flipped2 && <p>Click to reveal your card.</p>}
+                      {flipped2 && <motion.div>
+                        <Image className={styles.card} src={'/../public/' + card2 + '.jpg' } height="400" width="300"></Image>
+                        <h2>{ cards[card2].title }</h2>
+                        <p>{ cards[card2].description }</p>
+                        </motion.div>}
+                    </div>
+                    <div className={styles.card}>
+                      <h2> Future </h2>
+                      {!flipped3 && <Image src={background} onClick={ () => flipCard3(!flipped3)}></Image>}
+                      {!flipped3 && <p>Click to reveal your card.</p>}
+                      {flipped3 && <motion.div>
+                        <Image className={styles.card} src={'/../public/' + card3 + '.jpg' } height="400" width="300"></Image>
+                        <h2>{ cards[card3].title }</h2>
+                        <p>{ cards[card3].description }</p>
+                        </motion.div>}
+                    </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
       </main>
     </div>
   )
