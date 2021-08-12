@@ -10,6 +10,7 @@ import background from '../public/back.jpg'
 import { motion, AnimatePresence } from 'framer-motion'
 import {cards} from '../cards.js'
 
+
 const useStyles = makeStyles({
   root: {
     padding: '20px',
@@ -94,7 +95,7 @@ export default function Reading() {
                       {!flipped3 && <Image src={background} onClick={ () => flipCard3(!flipped3)}></Image>}
                       {!flipped3 && <p>Click to reveal your card.</p>}
                       {flipped3 && <motion.div>
-                        <Image className={styles.card} src={'/../public/' + card3 + '.jpg' } height="400" width="300"></Image>
+                        <Image className={styles.card} src={ '/../public/' + card3 + '.jpg' } height="400" width="300"></Image>
                         <h2>{ cards[card3].title }</h2>
                         <p>{ cards[card3].description }</p>
                         </motion.div>}
