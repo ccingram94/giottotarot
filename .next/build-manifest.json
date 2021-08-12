@@ -1,43 +1,62 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills.js"
+    "static/chunks/polyfills-a54b4f32bdc1ef890ddd.js"
   ],
-  "devFiles": [
-    "static/chunks/react-refresh.js"
-  ],
-  "ampDevFiles": [
-    "static/chunks/webpack.js",
-    "static/chunks/amp.js"
-  ],
+  "devFiles": [],
+  "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js"
+    "static/M3xxRNUcN4yD39G9DvaJ1/_buildManifest.js",
+    "static/M3xxRNUcN4yD39G9DvaJ1/_ssgManifest.js"
   ],
   "pages": {
     "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/webpack-61095c13c5984b221292.js",
+      "static/chunks/framework-0441fae7fd130f37dee1.js",
+      "static/chunks/main-0786f78015b8368a3815.js",
+      "static/chunks/55-3c22d6f1a3572a150eb8.js",
+      "static/chunks/927-5cf60cb8a7a815cf5999.js",
+      "static/css/d02281bd8c12365b478d.css",
+      "static/chunks/pages/index-da0eb01fd0024c88954e.js"
     ],
     "/_app": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_app.js"
+      "static/chunks/webpack-61095c13c5984b221292.js",
+      "static/chunks/framework-0441fae7fd130f37dee1.js",
+      "static/chunks/main-0786f78015b8368a3815.js",
+      "static/css/06d12e5e353243b59b0d.css",
+      "static/chunks/pages/_app-8547846b1cf3e64273e7.js"
     ],
     "/_error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_error.js"
+      "static/chunks/webpack-61095c13c5984b221292.js",
+      "static/chunks/framework-0441fae7fd130f37dee1.js",
+      "static/chunks/main-0786f78015b8368a3815.js",
+      "static/chunks/pages/_error-a0e21b9b223f827fe1f2.js"
     ],
-    "/next/dist/pages/_error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/next/dist/pages/_error.js"
+    "/cardmeanings": [
+      "static/chunks/webpack-61095c13c5984b221292.js",
+      "static/chunks/framework-0441fae7fd130f37dee1.js",
+      "static/chunks/main-0786f78015b8368a3815.js",
+      "static/chunks/55-3c22d6f1a3572a150eb8.js",
+      "static/chunks/965-f960674743851a02eb21.js",
+      "static/css/be70338ab28c1a986b45.css",
+      "static/chunks/pages/cardmeanings-0fee2818be3ae9fac2b6.js"
+    ],
+    "/profile": [
+      "static/chunks/webpack-61095c13c5984b221292.js",
+      "static/chunks/framework-0441fae7fd130f37dee1.js",
+      "static/chunks/main-0786f78015b8368a3815.js",
+      "static/chunks/55-3c22d6f1a3572a150eb8.js",
+      "static/chunks/927-5cf60cb8a7a815cf5999.js",
+      "static/css/d02281bd8c12365b478d.css",
+      "static/chunks/pages/profile-fe5cbd29a3e9df8c549a.js"
     ],
     "/reading": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/reading.js"
+      "static/chunks/webpack-61095c13c5984b221292.js",
+      "static/chunks/framework-0441fae7fd130f37dee1.js",
+      "static/chunks/main-0786f78015b8368a3815.js",
+      "static/chunks/55-3c22d6f1a3572a150eb8.js",
+      "static/chunks/965-f960674743851a02eb21.js",
+      "static/css/85f8dac11bcda6af984b.css",
+      "static/chunks/pages/reading-8da8d108c94f3270bd40.js"
     ]
   },
   "ampFirstPages": []
