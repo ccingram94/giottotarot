@@ -27,7 +27,8 @@ const useStyles = makeStyles({
     width: '50vw',
   },
 })
-export default function Home() {
+
+function Home() {
 
     const [ question, setQuestion ] = useState('');
     const [ session, loading ] = useSession();
@@ -70,3 +71,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home;
