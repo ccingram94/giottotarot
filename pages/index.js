@@ -58,7 +58,7 @@ function Home() {
           <TextField className={classes.textfield} value={question} onChange={(e) => setQuestion(e.target.value)}></TextField>
           <Box className={classes.flexdisplay}>
             <Link href="/reading">
-              <Button className={classes.basic}>reveal my fate</Button>
+              <Button className={classes.basic} onClick={handleSubmit}>reveal my fate</Button>
             </Link>
             <div className={styles.buttonbar}>
               {!session && <Button onClick={() => signIn()}>Sign In</Button>}

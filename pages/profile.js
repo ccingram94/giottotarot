@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import { useState } from 'react'
+import { session, useSession } from 'next-auth/client'
 
 const useStyles = makeStyles({
   root: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
 })
 export default function Home() {
 
-    const [question, setQuestion] = useState(""); 
+    const [session, loading] = useSession()
     const classes = useStyles();
 
     const handleSubmit = (e) => {
@@ -45,16 +46,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Giotto Tarot
+          My Profile
         </h1>
-        <form onSubmit={handleSubmit} className={classes.flexdisplay}>
-          <h2>enter your question below: </h2>
-          <TextField className={styles.input} value={question} onChange={(e) => setQuestion(e.target.value)}/>
-          <br />
-          <Box className={classes.flexdisplay}>
-            <Button className={classes.root}>reveal my fate</Button>
-          </Box>
-        </form>
+        <h2>signed in as: {session.user.email} </h2>
+        <h2>Your Saved Readings: </h2>
       </main>
     </div>
   )
