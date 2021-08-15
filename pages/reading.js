@@ -38,6 +38,10 @@ const card1 = pickCard(21);
 const card2 = pickCard(21);
 const card3 = pickCard(21);
 
+const card1image = ('/../public/' + card1 + '.jpg');
+const card2image = ('/../public/' + card2 + '.jpg');
+const card3image = ('/../public/' + card3 + '.jpg');
+
 
 export default function Reading() {
 
@@ -75,7 +79,7 @@ export default function Reading() {
                       {!flipped1 && <Image src={background} onClick={ () => flipCard(!flipped1)}></Image>}
                       {!flipped1 && <p>Click to reveal your card.</p>}
                       {flipped1 && <motion.div>
-                        <Image className={styles.card} src={'/../public/' + card1 + '.jpg' } height="400" width="300"></Image>
+                        <Image className={styles.card} src={card1image} height="400" width="300"></Image>
                         <h2>{ cards[card1].title }</h2>
                         <p>{ cards[card1].description }</p>
                         </motion.div>}
@@ -85,7 +89,7 @@ export default function Reading() {
                       {!flipped2 && <Image src={background} onClick={ () => flipCard2(!flipped2)}></Image>}
                       {!flipped2 && <p>Click to reveal your card.</p>}
                       {flipped2 && <motion.div>
-                        <Image className={styles.card} src={'/../public/' + card2 + '.jpg' } height="400" width="300"></Image>
+                        <Image className={styles.card} src={card2image} height="400" width="300"></Image>
                         <h2>{ cards[card2].title }</h2>
                         <p>{ cards[card2].description }</p>
                         </motion.div>}
@@ -95,7 +99,7 @@ export default function Reading() {
                       {!flipped3 && <Image src={background} onClick={ () => flipCard3(!flipped3)}></Image>}
                       {!flipped3 && <p>Click to reveal your card.</p>}
                       {flipped3 && <motion.div>
-                        <Image className={styles.card} src={ '/../public/' + card3 + '.jpg' } height="400" width="300"></Image>
+                        <Image className={styles.card} src={card3image} height="400" width="300"></Image>
                         <h2>{ cards[card3].title }</h2>
                         <p>{ cards[card3].description }</p>
                         </motion.div>}
