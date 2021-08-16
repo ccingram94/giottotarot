@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import router from 'next/router'
 import styles from '../styles/Reading.module.css'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
@@ -9,6 +10,7 @@ import { useState } from 'react'
 import background from '../public/back.jpg'
 import { motion, AnimatePresence } from 'framer-motion'
 import {cards} from '../cards.js'
+import prisma from '../lib/prisma'
 
 
 const useStyles = makeStyles({
@@ -29,6 +31,21 @@ const useStyles = makeStyles({
   }
 })
 
+function redirectHome () {
+  router.push("/");
+}
+
+function redirectReading() {
+  router.push("/reading");
+}
+
+function redirectCards() {
+  router.push("/cardmeanings");
+}
+
+function redirectProfile() {
+  router.push("/profile");
+}
 
 function pickCard(max) {
   return Math.floor(Math.random() * max);
@@ -61,9 +78,14 @@ export default function Reading() {
       </Head>
 
       <main className={styles.main}>
+        <div className={styles.buttbonbar}>
+          <Button onClick={redirectHome}>Home</Button>
+          <Button onClick={redirectCards}>Card Meanings</Button>
+          <Button onClick={redirectProfile}>My Profile</Button>
+          {visibility && <Button className={classes.basic}>Save This Reading</Button>}
+        </div>
         {!visibility &&  <h2> Click the deck to deal your cards: </h2>}
-        {visibility &&  <div className={classes.flexdisplay}><Button className={classes.basic}>Save This Reading</Button></div>}
-        <div className={styles.row} layout>
+        <div className={styles.row} layout="true">
           <div className={styles.deck}>
             <Image src={background} className={styles.deck} onClick={() => setVisibility(!visibility)}></Image>
           </div>

@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import { useState } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/client'
+import Question from '../components/Question'
 
 const useStyles = makeStyles({
   basic: {
@@ -40,6 +41,10 @@ function Home() {
       router.push('/reading');
     }
 
+    function redirectReading() {
+      router.push("/reading");
+    }
+
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
@@ -57,9 +62,8 @@ function Home() {
           <h2>enter your question below: </h2>
           <TextField className={classes.textfield} value={question} onChange={(e) => setQuestion(e.target.value)}></TextField>
           <Box className={classes.flexdisplay}>
-            <Link href="/reading">
-              <Button className={classes.basic} onClick={handleSubmit}>reveal my fate</Button>
-            </Link>
+              <Question></Question>
+              <Button className={classes.basic} onClick={redirectReading}>reveal my fate</Button>
             <div className={styles.buttonbar}>
               {!session && <Button onClick={() => signIn()}>Sign In</Button>}
               {session && <Button onClick={() => signOut()}>Sign Out</Button>}

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import router from 'next/router'
 import styles from '../styles/Home.module.css'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
@@ -26,34 +27,33 @@ const useStyles = makeStyles({
     width: '50vw',
   },
 })
-export default function Question() {
 
-    const [ question, setQuestion ] = useState('');
-    const [ session, loading ] = useSession();
+
+function Question() {
+    const [question, setQuestion] = useState('');
     const classes = useStyles();
-    
+
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      router.push('/reading');
+    }
+
+    function redirectReading() {
+      router.push("/reading");
+    }
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Giotto Tarot
-        </h1>
         <form onSubmit={handleSubmit} className={classes.flexdisplay}>
           <h2>enter your question below: </h2>
           <TextField className={classes.textfield} value={question} onChange={(e) => setQuestion(e.target.value)}></TextField>
           <Box className={classes.flexdisplay}>
-            <Link href="/reading">
-              <Button className={classes.basic}>reveal my fate</Button>
-            </Link>
-            <div className={styles.buttonbar}>
-              {!session && <Button onClick={() => signIn()}>Sign In</Button>}
-              {session && <Button onClick={() => signOut()}>Sign Out</Button>}
-              {session && <Link href="/profile"><Button>My Profile</Button></Link>}
-            </div>
+              <Button className={classes.basic} onClick={redirectReading}>reveal my fate</Button>
           </Box>
         </form>
-      </main>
     </div>
   )
 }
+
+export default Question;
