@@ -51,9 +51,9 @@ function pickCard(max) {
   return Math.floor(Math.random() * max);
 }
 
-const card1 = pickCard(21);
-const card2 = pickCard(21);
-const card3 = pickCard(21);
+let card1 = pickCard(21);
+let card2 = pickCard(21);
+let card3 = pickCard(21);
 
 let card1image = ('/../public/' + card1 + '.jpg');
 let card2image = ('/../public/' + card2 + '.jpg');
