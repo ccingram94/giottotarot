@@ -55,9 +55,9 @@ let card1 = pickCard(21);
 let card2 = pickCard(21);
 let card3 = pickCard(21);
 
-let card1image = (card1 + '.jpg');
-let card2image = (card2 + '.jpg');
-let card3image = (card3 + '.jpg');
+let card1image = ('/' + card1 + '.jpg');
+let card2image = ('/' + card2 + '.jpg');
+let card3image = ('/' + card3 + '.jpg');
 
 
 export default function Reading() {
