@@ -55,9 +55,9 @@ const card1 = pickCard(21);
 const card2 = pickCard(21);
 const card3 = pickCard(21);
 
-const card1image = ('/../public/' + card1 + '.jpg');
-const card2image = ('/../public/' + card2 + '.jpg');
-const card3image = ('/../public/' + card3 + '.jpg');
+let card1image = ('/../public/' + card1 + '.jpg');
+let card2image = ('/../public/' + card2 + '.jpg');
+let card3image = ('/../public/' + card3 + '.jpg');
 
 
 export default function Reading() {
